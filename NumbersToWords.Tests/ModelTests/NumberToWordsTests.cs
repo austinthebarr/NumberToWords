@@ -9,45 +9,66 @@ namespace Numbers2WordsApp.Test
   public class Numbers2WordsTest
   {
     [TestMethod]
-    public void SingleDigit_ReturnsCorrectWordFive_True()
+    public void IsSingleDigit_ReturnsCorrectWordFive_True()
     {
       //Assign
       Numbers2Words newNum = new Numbers2Words(5);
       //Act
-      string result = newNum.SingleDigit();
+      string result = newNum.IsSingleDigit();
       //Assert
       Assert.AreEqual(result, "five");
     }
     [TestMethod]
-    public void SingleDigit_ReturnsCorrectWordZero_True()
+    public void IsSingleDigit_ReturnsCorrectWordZero_True()
     {
       //Assign
       Numbers2Words newNum = new Numbers2Words(0);
       //Act
-      string result = newNum.SingleDigit();
+      string result = newNum.IsSingleDigit();
       //Assert
       Assert.AreEqual(result, "zero");
     }
     [TestMethod]
-    public void SingleDigit_ReturnsCorrectWordNine_True()
+    public void IsSingleDigit_ReturnsCorrectWordNine_True()
     {
       //Assign
       Numbers2Words newNum = new Numbers2Words(9);
       //Act
-      string result = newNum.SingleDigit();
+      string result = newNum.IsSingleDigit();
       //Assert
       Assert.AreEqual(result, "nine");
     }
-    // [TestMethod]
-    // public void StringToInt_ConvertsStringToInt_True()
-    // {
-    //   //Assign
-    //   Numbers2Words newNum = new Numbers2Words(9);
-    //   int expected = 9;
-    //   //Act
-    //   string result = newNum.StringToInt();
-    //   //Assert
-    //   Assert.AreEqual(expected, result);
-    // }
+    [TestMethod]
+    public void IsTeenNumber_ReturnsCorrectWordTen_True()
+    {
+      //Assign
+      Numbers2Words newNum = new Numbers2Words(10);
+      //Act
+      string result = newNum.IsTeenNumber();
+      //Assert
+      Assert.AreEqual(result, "ten");
+    }
+    [TestMethod]
+    public void IsTeenNumber_ReturnsCorrectWordFifteen_True()
+    {
+      //Assign
+      Numbers2Words newNum = new Numbers2Words(15);
+      //Act
+      string result = newNum.IsTeenNumber();
+      //Assert
+      Assert.AreEqual(result, "fifteen");
+    }
+    [TestMethod]
+    public void IsTeenNumber_ReturnsCorrectWordEighteen_True()
+    {
+      //Assign
+      Numbers2Words newNum = new Numbers2Words(18);
+      //Act
+      string result = newNum.IsTeenNumber();
+      //Assert
+      Assert.AreEqual(result, "eighteen");
+    }
+
+
   }
 }

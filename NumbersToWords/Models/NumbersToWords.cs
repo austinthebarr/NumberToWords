@@ -14,12 +14,12 @@ namespace Numbers2WordsApp.Models
         {4, "four"}, {5, "five"},
         {6, "six"}, {7, "seven"},
         {8, "eight"}, {9, "nine"} };
-      Dictionary<string, string> teensPosition = new Dictionary<string, string>() {
-          {"10", "ten"}, {"11", "eleven"},
-          {"12", "twelve"}, {"13", "thirteen"},
-          {"14", "fourteen"}, {"15", "fifteen"},
-          {"16", "sixteen"}, {"17", "seventeen"},
-          {"18", "eighteen"}, {"19", "nineteen"},  };
+      Dictionary<int, string> teensPosition = new Dictionary<int, string>() {
+          {10, "ten"}, {11, "eleven"},
+          {12, "twelve"}, {13, "thirteen"},
+          {14, "fourteen"}, {15, "fifteen"},
+          {16, "sixteen"}, {17, "seventeen"},
+          {18, "eighteen"}, {19, "nineteen"},  };
       Dictionary<string, string> tensPosition = new Dictionary<string, string>() {
           {"1", "ten"}, {"2", "twenty"},
           {"3", "thirty"}, {"4", "fourty"},
@@ -41,7 +41,7 @@ namespace Numbers2WordsApp.Models
         _userNumber = newNumber;
       }
 
-      public string SingleDigit()
+      public string IsSingleDigit()
       {
         string result = "WRONG!";
         int evaluate = this.GetNumber();
@@ -54,10 +54,38 @@ namespace Numbers2WordsApp.Models
         }
         return result;
       }
-      // public int StringToInt()
-      // {
-      //   int intvalue = int.Parse(this.GetNumber());
-      //   return intvalue;
-      // }
+      public string IsTeenNumber()
+      {
+        string result = "WRONG!";
+        int evaluate = this.GetNumber();
+        foreach(KeyValuePair<int, string> number in teensPosition)
+        {
+          if(evaluate == number.Key)
+          {
+            result = number.Value;
+          }
+        }
+        return result;
+      }
+
+    }
+
+    class Program
+    {
+      public static void Main()
+      {
+        string result = "You didn't enter a number between 0 and 19";
+        Console.WriteLine("Enter a number from 0 to 19");
+        Numbers2Words newWord = new Numbers2Words(int.Parse(Console.ReadLine()));
+        if(newWord.GetNumber() >= 0 && newWord.GetNumber() <= 9)
+        {
+          result = newWord.IsSingleDigit();
+        }
+        else if(newWord.GetNumber() >=10 && newWord.GetNumber() <= 19)
+        {
+          result = newWord.IsTeenNumber();
+        }
+        Console.WriteLine(result);
+      }
     }
 }
