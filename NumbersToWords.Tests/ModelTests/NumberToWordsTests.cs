@@ -26,7 +26,7 @@ namespace Numbers2WordsApp.Test
       //Act
       string result = newNum.IsSingleDigit();
       //Assert
-      Assert.AreEqual(result, "zero");
+      Assert.AreEqual(result, "");
     }
     [TestMethod]
     public void IsSingleDigit_ReturnsCorrectWordNine_True()
@@ -67,6 +67,17 @@ namespace Numbers2WordsApp.Test
       string result = newNum.IsTeenNumber();
       //Assert
       Assert.AreEqual(result, "eighteen");
+    }
+    [TestMethod]
+    public void Is20To99Replace_ReturnsCorrectWords22_True()
+    {
+      //Assign
+      Numbers2Words newNum = new Numbers2Words(22);
+      string expected = "twenty two";
+      //Act
+      string result = newNum.Is20To99Replace();
+      //Assert
+      Assert.AreEqual(expected, result);
     }
 
 
